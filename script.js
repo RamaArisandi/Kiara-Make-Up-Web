@@ -2,7 +2,7 @@
 // === FUNGSI & DATA GLOBAL (DAPAT DIAKSES DARI HTML) ===
 // =======================================================
 
-// Definisikan opsi sub-layanan spesifik untuk Make-Up
+// Opsi sub-layanan spesifik untuk tiap jenis make-up
 const subLayananOptions = {
     'Reguller Make-Up': [
         'Make Up Graduation SD-SMK/A',
@@ -17,61 +17,61 @@ const subLayananOptions = {
         'Make Up Pre-Wedding',
         'Make Up Graduation Univ',
         'Make Up Graduation Univ Super',
-        'Make Up Akad (Make Up Only)' 
+        'Make Up Akad (Make Up Only)'
     ]
 };
 
-// Fungsi 1: Update Sub-Layanan (Perlu di luar DOMContentLoaded)
+// =======================================================
+// === UPDATE SUB-LAYANAN BERDASARKAN PILIHAN UTAMA ======
+// =======================================================
 const updateSubLayanan = (layanan) => {
     const subLayananGroup = document.getElementById('sub-layanan-group');
     const selectSubLayanan = document.getElementById('sub-layanan');
 
-    // Pastikan elemen ada sebelum mencoba mengakses propertinya
-    if (!selectSubLayanan || !subLayananGroup) return; 
-    
-    // Reset dan sembunyikan sub-layanan
+    if (!selectSubLayanan || !subLayananGroup) return;
+
+    // Reset isi dropdown sub-layanan
     selectSubLayanan.innerHTML = '<option value="" disabled selected>Pilih Detail Layanan</option>';
     subLayananGroup.style.display = 'none';
 
     if (layanan && subLayananOptions[layanan]) {
-        // Tampilkan kembali grup sub-layanan
         subLayananGroup.style.display = 'block';
 
         subLayananOptions[layanan].forEach(subItem => {
             const option = document.createElement('option');
-            option.value = subItem; 
+            option.value = subItem;
             option.textContent = subItem;
             selectSubLayanan.appendChild(option);
         });
     }
 };
 
-// Fungsi 2: Go To Booking (Dipanggil oleh Kartu Layanan di HTML)
+// =======================================================
+// === SCROLL OTOMATIS KE FORM BOOKING DARI KARTU ========
+// =======================================================
 function goToBooking(layanan) {
     const contactSection = document.getElementById('contact');
     const selectLayananUtama = document.getElementById('layanan-utama');
 
     if (contactSection && selectLayananUtama) {
-        // A. Gulir ke bagian Kontak/Booking (#contact)
         contactSection.scrollIntoView({ behavior: 'smooth' });
 
-        // B. Tunda sebentar, lalu set nilai dan picu perubahan
         setTimeout(() => {
             selectLayananUtama.value = layanan;
-            
-            // C. Panggil fungsi updateSubLayanan secara manual
-            updateSubLayanan(layanan); 
-        }, 300); 
+            updateSubLayanan(layanan);
+        }, 300);
     } else {
         console.error('Elemen booking tidak ditemukan. Pastikan #contact dan #layanan-utama ada.');
     }
 }
 
-// Fungsi 3: Lightbox - Buka
+// =======================================================
+// === LIGHTBOX UNTUK GALERI ==============================
+// =======================================================
 function openLightbox(src) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    
+
     if (lightbox && lightboxImg) {
         lightbox.style.display = 'flex';
         lightboxImg.src = src;
@@ -80,22 +80,17 @@ function openLightbox(src) {
     }
 }
 
-// Fungsi 4: Lightbox - Tutup
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
-    
-    if (lightbox) {
-        lightbox.style.display = 'none';
-    } else {
-        console.error('Elemen lightbox tidak ditemukan.');
-    }
-} 
+    if (lightbox) lightbox.style.display = 'none';
+    else console.error('Elemen lightbox tidak ditemukan.');
+}
 
-// ==================================================
-// === KODE YANG BERJALAN SETELAH DOM DIMUAT (AMAN) ===
-// ==================================================
+// =======================================================
+// === KODE YANG BERJALAN SAAT DOM SUDAH DIMUAT ===========
+// =======================================================
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Event Listener Perubahan Pilihan Utama (Sub-Layanan) ---
+    // --- 1. Saat user ganti kategori make-up ---
     const selectLayananUtama = document.getElementById('layanan-utama');
     if (selectLayananUtama) {
         selectLayananUtama.addEventListener('change', (e) => {
@@ -103,25 +98,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 2. Simulasi Form Submission ---
+    // --- 2. Saat user kirim form booking ---
     const bookingForm = document.getElementById('booking-form');
     if (bookingForm) {
         bookingForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            // Ambil data form di sini
-            alert('🎉 Booking Anda berhasil dikirim! Kami akan menghubungi Anda segera.');
-            // bookingForm.reset(); 
+
+            // Ambil semua data dari form
+            const nama = bookingForm.nama.value;
+            const telepon = bookingForm.telepon.value;
+            const alamat = bookingForm.alamat.value;
+            const tanggal = bookingForm.tanggal.value;
+            const layananUtama = bookingForm['layanan-utama'].value;
+            const subLayanan = bookingForm['sub-layanan'] ? bookingForm['sub-layanan'].value : '';
+
+            // Nomor WhatsApp Admin (gunakan format internasional tanpa +)
+            const adminNumber = '628882782725';
+
+            // Buat pesan otomatis ke WhatsApp (format rapi ke bawah)
+            const message = 
+                `*Pemesanan Baru Kiara Make-Up*%0A` +
+                `=====================%0A` +
+                `*Nama:* ${nama}%0A` +
+                `*No. Telepon:* ${telepon}%0A` +
+                `*Alamat:* ${alamat}%0A` +
+                `*Tanggal Booking:* ${tanggal}%0A` +
+                `*Layanan:* ${layananUtama}%0A` +
+                `*Detail Layanan:* ${subLayanan}%0A` +
+                `=====================%0A` +
+                `Terima kasih telah melakukan pemesanan 💖`;
+
+            // Buka WhatsApp admin dengan isi pesan otomatis
+            const waLink = `https://wa.me/${adminNumber}?text=${message}`;
+            window.open(waLink, '_blank');
         });
     }
-    
-    // --- 3. Lightbox Event Listener (untuk menutup saat klik di luar gambar) ---
+
+    // --- 3. Tutup lightbox kalau klik di luar gambar ---
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
-        lightbox.addEventListener('click', function(event) {
-            // Jika klik di luar gambar (pada background), tutup lightbox
-            if (event.target === lightbox) {
-                closeLightbox();
-            }
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) closeLightbox();
         });
     }
 });
