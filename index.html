@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiara Make-Up</title>
+    <link rel="icon" type="image/png" href="Gallery/logo.png"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Kiara Make-Up</div>
+            <ul class="menu">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Tampil Cantik & Percaya Diri Setiap Hari</h1>
+            <p>Nikmati perawatan profesional dari tim ahli kecantikan kami.</p>
+            <a href="#contact" class="btn">Pesan Sekarang</a>
+            <a href="#services" class="btn">Layanan Kami</a>
+        </div>
+    </section>
+    
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Layanan Kami</h2>
+            <div class="services-grid">
+                
+                <div class="service-card" onclick="goToBooking('Reguller Make-Up')"> 
+                    <img src="Gallery/Fashion Show (2).jpg" alt="Reguller Make-Up">
+                    <h3>Reguller Make-Up</h3>
+                    <p>Basic Make-Up Modern untuk acara special.</p>
+                </div>
+                
+                <div class="service-card" onclick="goToBooking('Premium Make-Up')"> 
+                    <img src="Gallery/Wedding 4.jpg" alt="Premium Make-Up">
+                    <h3>Premium Make-Up</h3>
+                    <p>Makeup profesional untuk acara spesial.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Galeri</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('Gallery/Wedding 4.jpg')">
+                    <img src="Gallery/Wedding 4.jpg" alt="Wedding">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('Gallery/Wedding 3.jpg')">
+                    <img src="Gallery/Wedding 3.jpg" alt="Wedding">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('Gallery/Lamaran.jpg')">
+                    <img src="Gallery/Lamaran.jpg" alt="Lamaran">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('Gallery/Engagement.jpg')">
+                    <img src="Gallery/Engagement.jpg" alt="Lamaran">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('Gallery/Fashion Show.jpg')">
+                    <img src="Gallery/Fashion Show.jpg" alt="Fashion Show">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('Gallery/Fashion Show (2).jpg')">
+                    <img src="Gallery/Fashion Show (2).jpg" alt="Fashion Show">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('Gallery/Graduation Univ.jpg')">
+                    <img src="Gallery/Graduation Univ.jpg" alt="Graduation">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('Gallery/Wisuda SMK-A.jpg')">
+                    <img src="Gallery/Wisuda SMK-A.jpg" alt="Graduation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">×</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <img src="Gallery/Wedding 4.jpg" alt="Tim Salon">
+                <div class="about-text">
+                    <h2>Tentang Kami</h2>
+                    <p>Berpengalaman dalam dunia riasan, kami berkomitmen menjadi mitra kecantikan Anda. Kami hanya menggunakan produk premium dan keahlian **Make Up profesional** untuk memastikan Anda mendapatkan **hasil riasan yang tahan lama, elegan, dan memuaskan** di setiap kesempatan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+    <div class="container">
+        <h2>Kontak & Booking</h2>
+        <div class="contact-content">
+            <div class="contact-form">
+                <form id="booking-form"> 
+                    <input type="text" placeholder="Nama" name="nama" required>
+                    <input type="tel" placeholder="Nomor Telepon/WhatsApp (mis: 0812xxxx)" name="telepon" required>
+                    <input type="text" placeholder="Alamat Lengkap" name="alamat" required>
+                    <input type="date" placeholder="dd/mm/yyyy" name="tanggal" required>
+                    
+                    <select id="layanan-utama" name="layanan-utama" required>
+                        <option value="" disabled selected>Pilih Kategori Make-Up</option>
+                        <option value="Reguller Make-Up">Reguller Make-Up</option>
+                        <option value="Premium Make-Up">Premium Make-Up</option>
+                    </select>
+
+                    <div id="sub-layanan-group" style="display: none;">
+                        <select id="sub-layanan" name="sub-layanan" required>
+                            <option value="" disabled selected>Pilih Detail Layanan</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn">Kirim Booking</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <p><strong>Alamat:</strong> Kemalang, Kab, Klaten, Jawa Tengah</p>
+                <p><strong>Telepon:</strong> +62 888 2782 725</p>
+                <p><strong>Email:</strong> info@KiaraMakeUp.com</p>
+                <p><strong>Jam Operasional:</strong> Senin - Minggu</p>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.530663185324!2d110.59869681477794!3d-7.731778994432134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4697926b4845%3A0x7d28c9f0b1a03e1e!2sKemalang%2C%20Klaten%20Regency%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1639017600000!5m2!1sen!2sid" 
+                    width="100%" 
+                    height="300px" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Kiara Make Up. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

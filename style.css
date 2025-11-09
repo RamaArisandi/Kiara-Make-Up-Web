@@ -1,0 +1,405 @@
+/* Variabel Warna untuk Konsistensi */
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --color-soft-pink: #FFB6C1; /* Pink Lembut */
+    --color-deep-pink: #e91e63; /* Pink Lebih Gelap untuk Hover/Aksen kuat */
+    --color-light-gold: #DAA520; /* Emas Muda */
+    --color-dark-text: #333;
+    --color-light-bg: #f9f9f9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-dark-text);
+    background-color: #fff;
+    line-height: 1.6;
+    padding-top: 80px; /* Tambahkan padding agar konten tidak tertutup fixed navbar */
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+a {
+    text-decoration: none;
+    color: var(--color-dark-text);
+}
+
+/* --- 1. Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* Bayangan lebih lembut */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.navbar .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-deep-pink);
+    /* Sentuhan Emas pada Logo jika diperlukan */
+}
+.navbar .menu {
+    display: flex;
+    list-style: none;
+}
+.navbar .menu li {
+    margin-left: 30px;
+}
+.navbar .menu a {
+    text-decoration: none;
+    color: var(--color-dark-text);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.navbar .menu a:hover {
+    color: var(--color-deep-pink);
+}
+.navbar .btn {
+    background-color: var(--color-soft-pink); /* Pink Lembut */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.navbar .btn:hover {
+    background-color: var(--color-deep-pink);
+    box-shadow: 0 4px 10px rgba(233, 30, 99, 0.4);
+}
+
+/* --- 2. Hero Section --- */
+.hero {
+    background-image: url('Gallery/Wedding\ 2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    margin-top: -80px; /* Kompensasi padding body */
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+.hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in;
+    color: var(--color-soft-pink); /* Judul Hero menggunakan pink terang */
+}
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in 0.5s both;
+}
+.hero .btn {
+    background-color: var(--color-soft-pink);
+    color: #fff;
+    padding: 15px 30px;
+    border: 2px solid var(--color-soft-pink);
+    border-radius: 25px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+.hero .btn:nth-of-type(2) { /* Tombol "Lihat Layanan" */
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+}
+.hero .btn:hover {
+    background-color: var(--color-deep-pink);
+    border-color: var(--color-deep-pink);
+}
+
+/* --- 3. Services --- */
+.services {
+    padding: 80px 0;
+    background-color: var(--color-light-bg);
+}
+.services h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: var(--color-light-gold); /* Heading services pakai emas */
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+.service-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2); /* Bayangan lembut pink */
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.5); /* Efek hover lebih menonjol */
+}
+.service-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 50%; /* Membuat ikon lebih elegan */
+}
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--color-deep-pink);
+}
+
+/* --- 4. Gallery --- */
+.gallery {
+    padding: 80px 0;
+}
+.gallery h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: var(--color-light-gold);
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.gallery-item img {
+    width: 100%;
+    height: 250px; /* Tinggi seragam untuk galeri */
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85); /* Lebih gelap */
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.lightbox .close:hover {
+    color: var(--color-soft-pink);
+}
+
+/* --- 5. About --- */
+.about {
+    padding: 80px 0;
+    background-color: var(--color-light-bg);
+}
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.about img {
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.about-text {
+    width: 50%;
+}
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--color-deep-pink);
+}
+
+/* --- 6. Contact --- */
+.contact {
+    padding: 80px 0;
+}
+.contact h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: var(--color-light-gold);
+}
+.contact-content {
+    display: flex;
+    gap: 50px;
+}
+.contact-form {
+    width: 50%;
+}
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styling Input dan Select Interaktif */
+.contact-form input, 
+.contact-form select, 
+.contact-form button {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus, 
+.contact-form select:focus {
+    border-color: var(--color-soft-pink); /* Fokus pink lembut */
+    outline: none;
+}
+
+/* Style tambahan untuk select (menghilangkan default styling) */
+.contact-form select {
+    /* Mengatur ulang gaya select agar lebih seragam */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%2F%3E%3Cpath%20fill%3D%22%23FFB6C1%22%20d%3D%22M287%20177.1c-12-12-28.1-18.4-45-18.4H50.4c-16.9%200-33%206.4-45%2018.4-24.8%2024.8-24.8%2065.1%200%2089.9l104.9%20104.9c16%2016%2042%2016%2058%200l104.9-104.9c24.8-24.8%2024.8-65.1%200-89.9z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+/* Margin untuk Div Sub-layanan */
+#sub-layanan-group {
+    margin-bottom: 20px;
+}
+
+.contact-form button {
+    background-color: var(--color-soft-pink);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.contact-form button:hover {
+    background-color: var(--color-deep-pink);
+    box-shadow: 0 4px 10px rgba(233, 30, 99, 0.4);
+}
+
+.contact-info {
+    width: 50%;
+}
+.contact-info p strong {
+    color: var(--color-deep-pink);
+}
+.contact-info iframe {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- 7. Footer --- */
+.footer {
+    background-color: var(--color-dark-text); /* Warna gelap untuk kontras dan elegan */
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+.footer .social-icons {
+    margin-bottom: 20px;
+}
+.footer .social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+.footer .social-icons a:hover {
+    color: var(--color-soft-pink);
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .navbar .menu {
+        display: none;
+    }
+    /* Anda mungkin ingin menambahkan toggle menu di sini */
+
+    .hero h1 {
+        font-size: 32px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+    .about-content, .contact-content {
+        flex-direction: column;
+    }
+    .about img, .about-text, .contact-form, .contact-info {
+        width: 100%;
+    }
+    .about img {
+        margin-bottom: 20px;
+    }
+}
