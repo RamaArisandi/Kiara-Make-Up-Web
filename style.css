@@ -3,9 +3,9 @@ html {
     scroll-behavior: smooth;
 }
 :root {
-    --color-soft-pink: #FFB6C1; /* Pink Lembut */
-    --color-deep-pink: #e91e63; /* Pink Lebih Gelap untuk Hover/Aksen kuat */
-    --color-light-gold: #DAA520; /* Emas Muda */
+    --color-soft-pink: #FFB6C1;
+    --color-deep-pink: #e91e63;
+    --color-light-gold: #DAA520;
     --color-dark-text: #333;
     --color-light-bg: #f9f9f9;
 }
@@ -20,7 +20,7 @@ body {
     color: var(--color-dark-text);
     background-color: #fff;
     line-height: 1.6;
-    padding-top: 80px; /* Tambahkan padding agar konten tidak tertutup fixed navbar */
+    padding-top: 80px;
 }
 .container {
     max-width: 1200px;
@@ -32,14 +32,14 @@ a {
     color: var(--color-dark-text);
 }
 
-/* --- 1. Navbar --- */
+/* --- Navbar --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
     background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* Bayangan lebih lembut */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     position: fixed;
     width: 100%;
     top: 0;
@@ -49,7 +49,6 @@ a {
     font-size: 24px;
     font-weight: 700;
     color: var(--color-deep-pink);
-    /* Sentuhan Emas pada Logo jika diperlukan */
 }
 .navbar .menu {
     display: flex;
@@ -59,7 +58,6 @@ a {
     margin-left: 30px;
 }
 .navbar .menu a {
-    text-decoration: none;
     color: var(--color-dark-text);
     font-weight: 500;
     transition: color 0.3s;
@@ -68,7 +66,7 @@ a {
     color: var(--color-deep-pink);
 }
 .navbar .btn {
-    background-color: var(--color-soft-pink); /* Pink Lembut */
+    background-color: var(--color-soft-pink);
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -82,9 +80,9 @@ a {
     box-shadow: 0 4px 10px rgba(233, 30, 99, 0.4);
 }
 
-/* --- 2. Hero Section --- */
+/* --- Hero Section --- */
 .hero {
-    background-image: url('Gallery/Wedding\ 2.jpg'); 
+    background-image: url('Gallery/Wedding 2.jpg'); 
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -94,15 +92,12 @@ a {
     text-align: center;
     color: #fff;
     position: relative;
-    margin-top: -80px; /* Kompensasi padding body */
+    margin-top: -80px;
 }
 .hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background-color: rgba(0,0,0,0.4);
 }
 .hero-content {
@@ -114,7 +109,7 @@ a {
     font-weight: 700;
     margin-bottom: 20px;
     animation: fadeIn 1s ease-in;
-    color: var(--color-soft-pink); /* Judul Hero menggunakan pink terang */
+    color: var(--color-soft-pink);
 }
 .hero p {
     font-size: 20px;
@@ -132,7 +127,7 @@ a {
     font-weight: 500;
     transition: all 0.3s;
 }
-.hero .btn:nth-of-type(2) { /* Tombol "Lihat Layanan" */
+.hero .btn:nth-of-type(2) {
     background-color: transparent;
     color: #fff;
     border-color: #fff;
@@ -142,7 +137,7 @@ a {
     border-color: var(--color-deep-pink);
 }
 
-/* --- 3. Services --- */
+/* --- Services --- */
 .services {
     padding: 80px 0;
     background-color: var(--color-light-bg);
@@ -151,7 +146,7 @@ a {
     text-align: center;
     font-size: 36px;
     margin-bottom: 50px;
-    color: var(--color-light-gold); /* Heading services pakai emas */
+    color: var(--color-light-gold);
 }
 .services-grid {
     display: grid;
@@ -162,19 +157,19 @@ a {
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2); /* Bayangan lembut pink */
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.5); /* Efek hover lebih menonjol */
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.5);
 }
 .service-card img {
     width: 80px;
     height: 80px;
     margin-bottom: 20px;
-    border-radius: 50%; /* Membuat ikon lebih elegan */
+    border-radius: 50%;
 }
 .service-card h3 {
     font-size: 24px;
@@ -182,16 +177,26 @@ a {
     color: var(--color-deep-pink);
 }
 
-/* --- 4. Gallery --- */
+/* --- Gallery --- */
 .gallery {
     padding: 80px 0;
 }
 .gallery h2 {
     text-align: center;
     font-size: 36px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     color: var(--color-light-gold);
 }
+
+/* Pisahkan Premium & Reguler */
+.gallery-category {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: var(--color-deep-pink);
+    font-weight: 600;
+}
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -206,7 +211,7 @@ a {
 }
 .gallery-item img {
     width: 100%;
-    height: 250px; /* Tinggi seragam untuk galeri */
+    height: 250px;
     object-fit: cover;
     transition: transform 0.3s;
 }
@@ -218,11 +223,8 @@ a {
 .lightbox {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.85); /* Lebih gelap */
+    inset: 0;
+    background-color: rgba(0,0,0,0.85);
     z-index: 2000;
     justify-content: center;
     align-items: center;
@@ -245,7 +247,7 @@ a {
     color: var(--color-soft-pink);
 }
 
-/* --- 5. About --- */
+/* --- About --- */
 .about {
     padding: 80px 0;
     background-color: var(--color-light-bg);
@@ -269,7 +271,7 @@ a {
     color: var(--color-deep-pink);
 }
 
-/* --- 6. Contact --- */
+/* --- Contact --- */
 .contact {
     padding: 80px 0;
 }
@@ -290,8 +292,6 @@ a {
     display: flex;
     flex-direction: column;
 }
-
-/* Styling Input dan Select Interaktif */
 .contact-form input, 
 .contact-form select, 
 .contact-form button {
@@ -303,30 +303,21 @@ a {
     font-family: 'Poppins', sans-serif;
     transition: border-color 0.3s;
 }
-
 .contact-form input:focus, 
 .contact-form select:focus {
-    border-color: var(--color-soft-pink); /* Fokus pink lembut */
+    border-color: var(--color-soft-pink);
     outline: none;
 }
-
-/* Style tambahan untuk select (menghilangkan default styling) */
 .contact-form select {
-    /* Mengatur ulang gaya select agar lebih seragam */
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%2F%3E%3Cpath%20fill%3D%22%23FFB6C1%22%20d%3D%22M287%20177.1c-12-12-28.1-18.4-45-18.4H50.4c-16.9%200-33%206.4-45%2018.4-24.8%2024.8-24.8%2065.1%200%2089.9l104.9%20104.9c16%2016%2042%2016%2058%200l104.9-104.9c24.8-24.8%2024.8-65.1%200-89.9z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 12px;
 }
-
-/* Margin untuk Div Sub-layanan */
 #sub-layanan-group {
     margin-bottom: 20px;
 }
-
 .contact-form button {
     background-color: var(--color-soft-pink);
     color: #fff;
@@ -339,7 +330,6 @@ a {
     background-color: var(--color-deep-pink);
     box-shadow: 0 4px 10px rgba(233, 30, 99, 0.4);
 }
-
 .contact-info {
     width: 50%;
 }
@@ -354,9 +344,9 @@ a {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* --- 7. Footer --- */
+/* --- Footer --- */
 .footer {
-    background-color: var(--color-dark-text); /* Warna gelap untuk kontras dan elegan */
+    background-color: var(--color-dark-text);
     color: #fff;
     padding: 40px 0;
     text-align: center;
@@ -385,8 +375,6 @@ a {
     .navbar .menu {
         display: none;
     }
-    /* Anda mungkin ingin menambahkan toggle menu di sini */
-
     .hero h1 {
         font-size: 32px;
     }
@@ -398,8 +386,5 @@ a {
     }
     .about img, .about-text, .contact-form, .contact-info {
         width: 100%;
-    }
-    .about img {
-        margin-bottom: 20px;
     }
 }
