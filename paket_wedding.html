@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Paket Wedding | Kiara Make-Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">Kiara Make-Up</div>
+        <ul class="menu">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="sewa_baju.html">Sewa Baju</a></li>
+            <li><a href="#booking">Booking</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section id="booking" class="services">
+    <div class="container">
+        <h2>Paket Wedding</h2>
+
+        <div class="services-grid">
+            <div class="wedding 2.jpg">
+                <h3>Paket Wedding Silver</h3>
+                <p>Make Up + Hairdo</p>
+                <strong>Rp1.500.000</strong>
+                <button class="btn" onclick="addToCart('Paket Wedding Silver', 2000000)">
+                Tambah ke Keranjang
+                </button>
+            </div>
+
+            <div class="Wedding 3.jpg">
+                <h3>Paket Wedding Gold</h3>
+                <p>Make Up + Hairdo + Aksesoris</p>
+                <strong>Rp2.500.000</strong>
+                <button class="btn" onclick="addToCart('Paket Wedding Gold', 2500000)">
+                Tambah ke Keranjang
+            </button>
+        </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function goWA(paket){
+    const msg = `Halo Kiara Make Up%0ASaya ingin booking ${paket}`;
+    window.open(`https://wa.me/628882782725?text=${msg}`, "_blank");
+}
+</script>
+
+</body>
+</html>

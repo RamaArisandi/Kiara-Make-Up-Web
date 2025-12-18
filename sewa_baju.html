@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Sewa Baju | Kiara Make-Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">Kiara Make-Up</div>
+        <ul class="menu">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="paket_wedding.html">Paket Wedding</a></li>
+            <li><a href="#contact">Booking</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="services">
+    <div class="container">
+        <h2>Sewa Baju</h2>
+
+        <div class="services-grid">
+            <div class="service-card" onclick="goWA('Baju Pesta Gold')">
+                <img src="Gallery/baju wedding coklat.PNG">
+                <h3>Baju Wedding Brown</h3>
+                <p>Rp400.000 / hari</p>
+            </div>
+
+        <div class="services-grid">
+            <div class="service-card" onclick="goWA('Baju Pesta Gold')">
+                <img src="Gallery/baju wedding1.PNG">
+                <h3>Baju Wedding Black Motif</h3>
+                <p>Rp400.000 / hari</p>
+            </div>
+
+            <div class="service-card" onclick="goWA('Kebaya Modern')">
+                <img src="Gallery/baju biru.PNG">
+                <h3>Kebaya Modern</h3>
+                <p>Rp350.000 / hari</p>
+            </div>
+
+            <div class="service-card" onclick="goWA('Kebaya Modern')">
+                <img src="Gallery/baju pink.PNG">
+                <h3>Kebaya Modern</h3>
+                <p>Rp350.000 / hari</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function goWA(item){
+    const msg = `Halo Kiara Make Up%0ASaya ingin sewa ${item}`;
+    window.open(`https://wa.me/628882782725?text=${msg}`, "_blank");
+}
+</script>
+
+</body>
+</html>
