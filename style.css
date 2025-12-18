@@ -433,7 +433,7 @@ a {
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(255,182,193,0.25);
     overflow: hidden;
-    transition: transform .3s, box-shadow .3s;
+    transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .page-card:hover {
@@ -441,43 +441,11 @@ a {
     box-shadow: 0 12px 30px rgba(233,30,99,0.35);
 }
 
+/* 🔥 INI PENTING: FOTO KOTAK */
 .page-card img {
     width: 100%;
     height: 280px;
     object-fit: cover;
-}
-
-.page-card-content {
-    padding: 25px;
-    text-align: center;
-}
-
-.page-card-content h3 {
-    color: var(--color-deep-pink);
-    margin-bottom: 10px;
-}
-
-.page-card-content p {
-    font-size: 15px;
-    margin-bottom: 15px;
-}
-
-.page-card-content .price {
-    font-weight: 700;
-    color: var(--color-light-gold);
-    margin-bottom: 15px;
-}
-
-.page-card-content .btn {
-    background: var(--color-soft-pink);
-    color: #fff;
-    padding: 10px 22px;
-    border-radius: 25px;
-    display: inline-block;
-    transition: background .3s, box-shadow .3s;
-}
-
-.page-card-content .btn:hover {
-    background: var(--color-deep-pink);
-    box-shadow: 0 4px 12px rgba(233,30,99,.4);
+    border-radius: 0;        /* PASTI KOTAK */
+    display: block;          /* hilangkan spasi bawah img */
 }
