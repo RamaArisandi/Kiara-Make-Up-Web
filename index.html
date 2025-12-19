@@ -188,5 +188,23 @@
 
 
     <script src="script.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const paket = JSON.parse(localStorage.getItem("paketDipilih"));
+        if (!paket) return;
+
+        const layanan = document.getElementById("layanan-utama");
+        const detail = document.getElementById("sub-layanan");
+        const paketInput = document.getElementById("paket");
+        const hargaInput = document.getElementById("harga");
+
+        if (layanan) layanan.value = paket.kategori;
+        if (paketInput) paketInput.value = paket.nama;
+        if (detail) detail.value = paket.detail;
+        if (hargaInput) hargaInput.value = "Rp" + paket.harga;
+    });
+    </script>
+
 </body>
 </html>

@@ -1,144 +1,137 @@
 // =======================================================
-// === FUNGSI & DATA GLOBAL (DAPAT DIAKSES DARI HTML) ===
+// === DATA SUB-LAYANAN ==================================
 // =======================================================
-
-// Opsi sub-layanan spesifik untuk tiap jenis make-up
 const subLayananOptions = {
-    'Reguller Make-Up': [
-        'Make Up Graduation SD-SMK/A',
-        'Make Up Pendamping',
-        'Make Up Among Tamu',
-        'Make Up Yearbook',
-        'Make Up Bridesmaid',
-        'Make Up Anak-anak (Tanpa Bulu Mata)'
-    ],
-    'Premium Make-Up': [
-        'Make Up Engagement',
-        'Make Up Pre-Wedding',
-        'Make Up Graduation Univ',
-        'Make Up Graduation Univ Super',
-        'Make Up Akad (Make Up Only)'
-    ]
+  "Reguller Make-Up": [
+    "Make Up Graduation SD-SMK/A",
+    "Make Up Pendamping",
+    "Make Up Among Tamu",
+    "Make Up Yearbook",
+    "Make Up Bridesmaid",
+    "Make Up Anak-anak (Tanpa Bulu Mata)"
+  ],
+  "Premium Make-Up": [
+    "Make Up Engagement",
+    "Make Up Pre-Wedding",
+    "Make Up Graduation Univ",
+    "Make Up Graduation Univ Super",
+    "Make Up Akad (Make Up Only)"
+  ]
 };
 
 // =======================================================
-// === UPDATE SUB-LAYANAN BERDASARKAN PILIHAN UTAMA ======
+// === UPDATE SUB-LAYANAN ================================
 // =======================================================
-const updateSubLayanan = (layanan) => {
-    const subLayananGroup = document.getElementById('sub-layanan-group');
-    const selectSubLayanan = document.getElementById('sub-layanan');
+function updateSubLayanan(layanan) {
+  const group = document.getElementById("sub-layanan-group");
+  const select = document.getElementById("sub-layanan");
 
-    if (!selectSubLayanan || !subLayananGroup) return;
+  if (!group || !select) return;
 
-    // Reset isi dropdown sub-layanan
-    selectSubLayanan.innerHTML = '<option value="" disabled selected>Pilih Detail Layanan</option>';
-    subLayananGroup.style.display = 'none';
+  select.innerHTML =
+    '<option value="" disabled selected>Pilih Detail Layanan</option>';
+  group.style.display = "none";
 
-    if (layanan && subLayananOptions[layanan]) {
-        subLayananGroup.style.display = 'block';
-
-        subLayananOptions[layanan].forEach(subItem => {
-            const option = document.createElement('option');
-            option.value = subItem;
-            option.textContent = subItem;
-            selectSubLayanan.appendChild(option);
-        });
-    }
-};
-
-// =======================================================
-// === SCROLL OTOMATIS KE FORM BOOKING DARI KARTU ========
-// =======================================================
-function goToBooking(layanan) {
-    const contactSection = document.getElementById('contact');
-    const selectLayananUtama = document.getElementById('layanan-utama');
-
-    if (contactSection && selectLayananUtama) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-
-        setTimeout(() => {
-            selectLayananUtama.value = layanan;
-            updateSubLayanan(layanan);
-        }, 300);
-    } else {
-        console.error('Elemen booking tidak ditemukan. Pastikan #contact dan #layanan-utama ada.');
-    }
+  if (subLayananOptions[layanan]) {
+    group.style.display = "block";
+    subLayananOptions[layanan].forEach(item => {
+      const opt = document.createElement("option");
+      opt.value = item;
+      opt.textContent = item;
+      select.appendChild(opt);
+    });
+  }
 }
 
 // =======================================================
-// === LIGHTBOX UNTUK GALERI ==============================
+// === SCROLL KE FORM BOOKING ============================
+// =======================================================
+function goToBooking(layanan) {
+  const contact = document.getElementById("contact");
+  const selectLayanan = document.getElementById("layanan-utama");
+
+  if (!contact || !selectLayanan) return;
+
+  contact.scrollIntoView({ behavior: "smooth" });
+
+  setTimeout(() => {
+    selectLayanan.value = layanan;
+    updateSubLayanan(layanan);
+  }, 300);
+}
+
+// =======================================================
+// === LIGHTBOX GALERI ===================================
 // =======================================================
 function openLightbox(src) {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
+  const lightbox = document.getElementById("lightbox");
+  const img = document.getElementById("lightbox-img");
 
-    if (lightbox && lightboxImg) {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = src;
-    } else {
-        console.error('Elemen lightbox atau lightbox-img tidak ditemukan.');
-    }
+  if (!lightbox || !img) return;
+
+  img.src = src;
+  lightbox.style.display = "flex";
 }
 
 function closeLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    if (lightbox) lightbox.style.display = 'none';
-    else console.error('Elemen lightbox tidak ditemukan.');
+  const lightbox = document.getElementById("lightbox");
+  if (lightbox) lightbox.style.display = "none";
 }
 
 // =======================================================
-// === KODE YANG BERJALAN SAAT DOM SUDAH DIMUAT ===========
+// === DOM READY =========================================
 // =======================================================
-document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Saat user ganti kategori make-up ---
-    const selectLayananUtama = document.getElementById('layanan-utama');
-    if (selectLayananUtama) {
-        selectLayananUtama.addEventListener('change', (e) => {
-            updateSubLayanan(e.target.value);
-        });
-    }
+document.addEventListener("DOMContentLoaded", () => {
+  // Ganti kategori layanan
+  const layananUtama = document.getElementById("layanan-utama");
+  if (layananUtama) {
+    layananUtama.addEventListener("change", e => {
+      updateSubLayanan(e.target.value);
+    });
+  }
 
-    // --- 2. Saat user kirim form booking ---
-    const bookingForm = document.getElementById('booking-form');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+  // Submit form booking → WhatsApp
+  const form = document.getElementById("booking-form");
+  if (form) {
+    form.addEventListener("submit", e => {
+      e.preventDefault();
 
-            // Ambil semua data dari form
-            const nama = bookingForm.nama.value;
-            const telepon = bookingForm.telepon.value;
-            const alamat = bookingForm.alamat.value;
-            const tanggal = bookingForm.tanggal.value;
-            const layananUtama = bookingForm['layanan-utama'].value;
-            const subLayanan = bookingForm['sub-layanan'] ? bookingForm['sub-layanan'].value : '';
+      const nama = form.nama.value;
+      const telepon = form.telepon.value;
+      const alamat = form.alamat.value;
+      const tanggal = form.tanggal.value;
+      const layanan = form["layanan-utama"].value;
+      const detail = form["sub-layanan"]
+        ? form["sub-layanan"].value
+        : "-";
 
-            // Nomor WhatsApp Admin (gunakan format internasional tanpa +)
-            const adminNumber = '628882782725';
+      const admin = "628882782725";
 
-            // Buat pesan otomatis ke WhatsApp (format rapi ke bawah)
-            const message = 
-                `*Pemesanan Baru Kiara Make-Up*%0A` +
-                `=====================%0A` +
-                `*Nama:* ${nama}%0A` +
-                `*No. Telepon:* ${telepon}%0A` +
-                `*Alamat:* ${alamat}%0A` +
-                `*Tanggal Booking:* ${tanggal}%0A` +
-                `*Layanan:* ${layananUtama}%0A` +
-                `*Detail Layanan:* ${subLayanan}%0A` +
-                `=====================%0A` +
-                `Terima kasih telah melakukan pemesanan 💖`;
+      const pesan = `
+*Pemesanan Baru Kiara Make-Up*
+=====================
+Nama: ${nama}
+No. HP: ${telepon}
+Alamat: ${alamat}
+Tanggal: ${tanggal}
+Layanan: ${layanan}
+Detail: ${detail}
+=====================
+Terima kasih 💖
+`;
 
-            // Buka WhatsApp admin dengan isi pesan otomatis
-            const waLink = `https://wa.me/${adminNumber}?text=${message}`;
-            window.open(waLink, '_blank');
-        });
-    }
+      window.open(
+        `https://wa.me/${admin}?text=${encodeURIComponent(pesan)}`,
+        "_blank"
+      );
+    });
+  }
 
-    // --- 3. Tutup lightbox kalau klik di luar gambar ---
-    const lightbox = document.getElementById('lightbox');
-    if (lightbox) {
-        lightbox.addEventListener('click', (event) => {
-            if (event.target === lightbox) closeLightbox();
-        });
-    }
+  // Tutup lightbox klik luar
+  const lightbox = document.getElementById("lightbox");
+  if (lightbox) {
+    lightbox.addEventListener("click", e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
 });

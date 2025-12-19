@@ -13,76 +13,73 @@
         <ul class="menu">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="sewa_baju.html">Sewa Baju</a></li>
-            <li><a href="#booking">Booking</a></li>
+            <li><a href="index.html#booking">Booking</a></li>
         </ul>
     </div>
 </nav>
 
-<section class="page-section paket-page">
+<section class="services">
     <div class="container">
         <h2>Paket Wedding</h2>
 
-        <div class="page-grid">
-            <div class="page-card">
-                <div class="service-card" onclick="goWA('Paket Wedding 1')"></div>
-                <img src="Gallery/baju wedding coklat.PNG">
+        <div class="services-grid">
+
+            <!-- PAKET 1 -->
+            <div class="service-card" onclick="pesanPaket(
+                'Wedding',
+                'Paket Wedding 1',
+                'Makeup cpw 1x, Baju cpw & cpp 1x, Melati fresh premium, Hand buket fresh',
+                '1500000'
+            )">
+                <img src="Gallery/Wedding1.jpg" alt="Paket Wedding 1">
                 <h3>Paket Wedding 1</h3>
-                <p>• Makeup cpw 1x</p>
-                <p>• Baju cpw & cpp 1x</p>
-                <p>• Melati fresh premium (solo putri hijab/non/modern look)</p>
-                <p>• Hand buket fresh</p>
+                <p>
+                    Makeup cpw 1x<br>
+                    Baju cpw & cpp 1x<br>
+                    Melati fresh premium<br>
+                    Hand buket fresh
+                </p>
                 <strong>Rp1.500.000</strong>
             </div>
 
-            <div class="page-card">
-                <div class="service-card" onclick="goWA('Paket Wedding 2')"></div>
-                <img src="Gallery/baju wedding coklat.PNG">
+            <!-- PAKET 2 -->
+            <div class="service-card" onclick="pesanPaket(
+                'Wedding',
+                'Paket Wedding 2',
+                'Makeup cpw & cpp, Baju cpw & cpp, Beskap ayah, Melati premium',
+                '2500000'
+            )">
+                <img src="Gallery/Wedding2.jpg" alt="Paket Wedding 2">
                 <h3>Paket Wedding 2</h3>
-                <p>• Makeup cpw 1x</p>
-                <p>• Baju cpw & cpp 1x</p>
-                <p>• Melati fresh premium (solo putri hijab/non/modern look)</p>
-                <p>• Hand buket fresh</p>
-                <p>• Makeup ibu cpw & cpp</p>
-                <p>• Baju ibu cpw & cpp</p>
-                <p>• Beskap ayah cpw & cpp</p>
+                <p>
+                    Makeup cpw & cpp<br>
+                    Baju cpw & cpp<br>
+                    Beskap ayah<br>
+                    Melati premium
+                </p>
                 <strong>Rp2.500.000</strong>
+            </div>
 
-            <div class="page-card">
-                <div class="service-card" onclick="goWA('Paket Wedding Reguller')"></div>
-                <img src="Gallery/baju wedding coklat.PNG">
-                <h3>Paket Wedding Reguller</h3>
-                <p>• Makeup cpw 1x + retouch</p>
-                <p>• Baju cpw & cpp 2x</p>
-                <p>• Melati fresh premium (solo putri hijab/non/modern look)</p>
-                <p>• Hand buket fresh</p>
-                <p>• Makeup ibu cpw & cpp</p>
-                <p>• Baju ibu cpw & cpp</p>
-                <p>• Beskap ayah cpw & cpp</p>
-                <strong>Rp3.000.000</strong>
+            <!-- Paket 3 & 4 tinggal copy struktur ini -->
 
-            <div class="page-card">
-                <div class="page-card premium">
-                <div class="service-card" onclick="goWA('Paket Wedding Premium')"></div>
-                <img src="Gallery/baju wedding coklat.PNG">
-                <h3>Paket Wedding Premium</h3>
-                <p>• Makeup cpw 1x + retouch</p>
-                <p>• Baju cpw & cpp 2x</p>
-                <p>• Melati fresh premium (solo putri hijab/non/modern look)</p>
-                <p>• Hand buket fresh</p>
-                <p>• Makeup ibu cpw & cpp</p>
-                <p>• Baju ibu cpw & cpp</p>
-                <p>• Beskap ayah cpw & cpp</p>
-                <p>• 1 Fotografer + album</p>
-                <strong>Rp2.500.000</strong>
-        </div>
         </div>
     </div>
 </section>
 
 <script>
-function goWA(paket){
-    const msg = `Halo Kiara Make Up%0ASaya ingin booking ${paket}`;
-    window.open(`https://wa.me/628882782725?text=${msg}`, "_blank");
+/* =====================================
+   SIMPAN PAKET & ARAHKAN KE BOOKING
+===================================== */
+function pesanPaket(kategori, nama, detail, harga) {
+    const paket = {
+        kategori,
+        nama,
+        detail,
+        harga
+    };
+
+    localStorage.setItem("paketDipilih", JSON.stringify(paket));
+    window.location.href = "index.html#booking";
 }
 </script>
 
