@@ -482,3 +482,32 @@ a {
   padding: 80px 20px;
   text-align: center;
 }
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 26px;
+  border-radius: 50px; /* INI YANG BIKIN BULAT */
+  background-color: #ffb6c1;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn.outline {
+  background: transparent;
+  border: 2px solid #ffb6c1;
+  color: #ffb6c1;
+}
+
+.btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
