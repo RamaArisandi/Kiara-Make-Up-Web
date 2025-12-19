@@ -24,34 +24,31 @@
 
     <div class="page-grid">
 
-      <!-- Paket 1 -->
-<div class="page-card">
-  <img src="Gallery/Wedding 1.jpg" alt="Paket Silver">
-
-  <div class="page-card-content">
-    <h3>Paket Wedding Silver</h3>
-    <p>
-      ✔ Make Up Pengantin <br>
-      ✔ Make Up Pendamping <br>
-      ✔ Hijab Do <br>
-      ✔ Touch Up
-    </p>
-
-    <button class="btn"
-      onclick="pesanPaketWedding(
-        'Paket Wedding Silver',
-        'Make Up Pengantin, Make Up Pendamping, Hijab Do, Touch Up',
-        '1500000'
-      )">
-      Pesan Paket
-    </button>
-  </div>
-</div>
-
-
-      <!-- Paket 2 -->
+      <!-- Paket Silver -->
       <div class="page-card">
-        <img src="Gallery/Wedding 2.jpg" alt="Paket Gold">
+        <img src="Gallery/Wedding 1.jpg" alt="Paket Wedding Silver">
+        <div class="page-card-content">
+          <h3>Paket Wedding Silver</h3>
+          <p>
+            ✔ Make Up Pengantin <br>
+            ✔ Make Up Pendamping <br>
+            ✔ Hijab Do <br>
+            ✔ Touch Up
+          </p>
+          <button class="btn"
+            onclick="pesanPaketWedding(
+              'Paket Wedding Silver',
+              'Make Up Pengantin, Make Up Pendamping, Hijab Do, Touch Up',
+              '1500000'
+            )">
+            Pesan Paket
+          </button>
+        </div>
+      </div>
+
+      <!-- Paket Gold -->
+      <div class="page-card">
+        <img src="Gallery/Wedding 2.jpg" alt="Paket Wedding Gold">
         <div class="page-card-content">
           <h3>Paket Wedding Gold</h3>
           <p>
@@ -61,15 +58,20 @@
             ✔ Touch Up <br>
             ✔ Hair Do
           </p>
-          <button class="btn" onclick="pesanPaketWedding('Paket Wedding Gold', this)">
+          <button class="btn"
+            onclick="pesanPaketWedding(
+              'Paket Wedding Gold',
+              'Make Up Pengantin, Make Up Keluarga, Hijab Do, Touch Up, Hair Do',
+              '2500000'
+            )">
             Pesan Paket
           </button>
         </div>
       </div>
 
-      <!-- Paket 3 -->
+      <!-- Paket Platinum -->
       <div class="page-card">
-        <img src="Gallery/Wedding 3.jpg" alt="Paket Platinum">
+        <img src="Gallery/Wedding 3.jpg" alt="Paket Wedding Platinum">
         <div class="page-card-content">
           <h3>Paket Wedding Platinum</h3>
           <p>
@@ -78,7 +80,12 @@
             ✔ Hijab & Hair Do <br>
             ✔ Touch Up Full Day
           </p>
-          <button class="btn" onclick="pesanPaketWedding('Paket Wedding Platinum', this)">
+          <button class="btn"
+            onclick="pesanPaketWedding(
+              'Paket Wedding Platinum',
+              'Make Up Pengantin, Make Up Keluarga, Hijab & Hair Do, Touch Up Full Day',
+              '3500000'
+            )">
             Pesan Paket
           </button>
         </div>
@@ -88,24 +95,24 @@
   </div>
 </section>
 
-
+<!-- ================= JAVASCRIPT ================= -->
 <script>
-/* =====================================
-   SIMPAN PAKET & ARAHKAN KE BOOKING
-===================================== */
-function pesanPaket(kategori, nama, detail, harga) {
-    const paket = {
-        kategori,
-        nama,
-        detail,
-        harga
-    };
+function pesanPaketWedding(nama, detail, harga) {
+  const admin = "628882782725";
 
-    localStorage.setItem("paketDipilih", JSON.stringify(paket));
-    window.location.href = "index.html#booking";
+  const pesan =
+`*Pemesanan Paket Wedding Kiara Make-Up*
+====================
+Paket: ${nama}
+Detail: ${detail}
+Harga: Rp${harga}
+====================
+Halo admin, saya ingin pesan paket ini 🙏`;
+
+  const url = `https://wa.me/${admin}?text=${encodeURIComponent(pesan)}`;
+  window.open(url, "_blank");
 }
 </script>
-<script src="script.js"></script>
 
 </body>
 </html>
