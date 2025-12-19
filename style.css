@@ -511,3 +511,23 @@ a {
     opacity: 0.85;
     transform: translateY(-2px);
 }
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap; /* INI KUNCI UTAMA */
+}
+
+/* MODE HP */
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons .btn {
+    width: 85%;
+    text-align: center;
+  }
+}
