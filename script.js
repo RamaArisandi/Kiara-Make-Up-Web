@@ -146,3 +146,30 @@ Terima kasih 💖`;
     });
   }
 });
+
+function pesanPaketWedding(namaPaket, btn) {
+  const card = btn.closest('.page-card');
+  const detail = card.querySelector('p').innerText;
+
+  const tanggal = prompt("Masukkan tanggal acara (contoh: 12 Juni 2025):");
+  if (!tanggal) return;
+
+  const admin = "628882782725";
+
+  const pesan = `
+*Pemesanan Paket Wedding – Kiara Make-Up*
+=====================
+Paket: ${namaPaket}
+Tanggal Acara: ${tanggal}
+
+Detail Paket:
+${detail}
+
+Terima kasih 💖
+`;
+
+  window.open(
+    `https://wa.me/${admin}?text=${encodeURIComponent(pesan)}`,
+    "_blank"
+  );
+}

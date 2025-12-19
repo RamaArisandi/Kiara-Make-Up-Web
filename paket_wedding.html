@@ -18,53 +18,68 @@
     </div>
 </nav>
 
-<section class="services">
-    <div class="container">
-        <h2>Paket Wedding</h2>
+<section class="page-section" id="paket-wedding">
+  <div class="container">
+    <h2>Paket Wedding</h2>
 
-        <div class="services-grid">
+    <div class="page-grid">
 
-            <!-- PAKET 1 -->
-            <div class="service-card" onclick="pesanPaket(
-                'Wedding',
-                'Paket Wedding 1',
-                'Makeup cpw 1x, Baju cpw & cpp 1x, Melati fresh premium, Hand buket fresh',
-                '1500000'
-            )">
-                <img src="Gallery/Wedding1.jpg" alt="Paket Wedding 1">
-                <h3>Paket Wedding 1</h3>
-                <p>
-                    Makeup cpw 1x<br>
-                    Baju cpw & cpp 1x<br>
-                    Melati fresh premium<br>
-                    Hand buket fresh
-                </p>
-                <strong>Rp1.500.000</strong>
-            </div>
-
-            <!-- PAKET 2 -->
-            <div class="service-card" onclick="pesanPaket(
-                'Wedding',
-                'Paket Wedding 2',
-                'Makeup cpw & cpp, Baju cpw & cpp, Beskap ayah, Melati premium',
-                '2500000'
-            )">
-                <img src="Gallery/Wedding2.jpg" alt="Paket Wedding 2">
-                <h3>Paket Wedding 2</h3>
-                <p>
-                    Makeup cpw & cpp<br>
-                    Baju cpw & cpp<br>
-                    Beskap ayah<br>
-                    Melati premium
-                </p>
-                <strong>Rp2.500.000</strong>
-            </div>
-
-            <!-- Paket 3 & 4 tinggal copy struktur ini -->
-
+      <!-- Paket 1 -->
+      <div class="page-card">
+        <img src="Gallery/Wedding 1.jpg" alt="Paket Silver">
+        <div class="page-card-content">
+          <h3>Paket Wedding Silver</h3>
+          <p>
+            ✔ Make Up Pengantin <br>
+            ✔ Make Up Pendamping <br>
+            ✔ Hijab Do <br>
+            ✔ Touch Up
+          </p>
+          <button class="btn" onclick="pesanPaketWedding('Paket Wedding Silver', this)">
+            Pesan Paket
+          </button>
         </div>
+      </div>
+
+      <!-- Paket 2 -->
+      <div class="page-card">
+        <img src="Gallery/Wedding 2.jpg" alt="Paket Gold">
+        <div class="page-card-content">
+          <h3>Paket Wedding Gold</h3>
+          <p>
+            ✔ Make Up Pengantin <br>
+            ✔ Make Up Keluarga <br>
+            ✔ Hijab Do <br>
+            ✔ Touch Up <br>
+            ✔ Hair Do
+          </p>
+          <button class="btn" onclick="pesanPaketWedding('Paket Wedding Gold', this)">
+            Pesan Paket
+          </button>
+        </div>
+      </div>
+
+      <!-- Paket 3 -->
+      <div class="page-card">
+        <img src="Gallery/Wedding 3.jpg" alt="Paket Platinum">
+        <div class="page-card-content">
+          <h3>Paket Wedding Platinum</h3>
+          <p>
+            ✔ Make Up Pengantin <br>
+            ✔ Make Up Keluarga <br>
+            ✔ Hijab & Hair Do <br>
+            ✔ Touch Up Full Day
+          </p>
+          <button class="btn" onclick="pesanPaketWedding('Paket Wedding Platinum', this)">
+            Pesan Paket
+          </button>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
+
 
 <script>
 /* =====================================
