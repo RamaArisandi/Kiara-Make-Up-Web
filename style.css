@@ -313,6 +313,36 @@ a {
 }
 
 /* =====================================
+   LIGHTBOX (KLIK GAMBAR → FULLSCREEN)
+===================================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.5);
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  font-size: 36px;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+/* =====================================
    ABOUT (TENTANG KAMI) - FIX IMAGE
 ===================================== */
 .about {
