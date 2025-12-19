@@ -25,21 +25,29 @@
     <div class="page-grid">
 
       <!-- Paket 1 -->
-      <div class="page-card">
-        <img src="Gallery/Wedding 1.jpg" alt="Paket Silver">
-        <div class="page-card-content">
-          <h3>Paket Wedding Silver</h3>
-          <p>
-            ✔ Make Up Pengantin <br>
-            ✔ Make Up Pendamping <br>
-            ✔ Hijab Do <br>
-            ✔ Touch Up
-          </p>
-          <button class="btn" onclick="pesanPaketWedding('Paket Wedding Silver', this)">
-            Pesan Paket
-          </button>
-        </div>
-      </div>
+<div class="page-card">
+  <img src="Gallery/Wedding 1.jpg" alt="Paket Silver">
+
+  <div class="page-card-content">
+    <h3>Paket Wedding Silver</h3>
+    <p>
+      ✔ Make Up Pengantin <br>
+      ✔ Make Up Pendamping <br>
+      ✔ Hijab Do <br>
+      ✔ Touch Up
+    </p>
+
+    <button class="btn"
+      onclick="pesanPaketWedding(
+        'Paket Wedding Silver',
+        'Make Up Pengantin, Make Up Pendamping, Hijab Do, Touch Up',
+        '1500000'
+      )">
+      Pesan Paket
+    </button>
+  </div>
+</div>
+
 
       <!-- Paket 2 -->
       <div class="page-card">
@@ -97,6 +105,7 @@ function pesanPaket(kategori, nama, detail, harga) {
     window.location.href = "index.html#booking";
 }
 </script>
+<script src="script.js"></script>
 
 </body>
 </html>
