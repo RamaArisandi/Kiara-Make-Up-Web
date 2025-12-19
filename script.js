@@ -82,7 +82,8 @@ function closeLightbox() {
 // === DOM READY =========================================
 // =======================================================
 document.addEventListener("DOMContentLoaded", () => {
-  // Ganti kategori layanan
+
+  // === Dropdown layanan utama ===
   const layananUtama = document.getElementById("layanan-utama");
   if (layananUtama) {
     layananUtama.addEventListener("change", e => {
@@ -90,11 +91,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Submit form booking → WhatsApp
+  // === SUBMIT FORM (ANTI DOBEL) ===
   const form = document.getElementById("booking-form");
+  let sudahKirim = false;
+
   if (form) {
     form.addEventListener("submit", e => {
       e.preventDefault();
+      if (sudahKirim) return; // 🔥 cegah dobel
+      sudahKirim = true;
 
       const nama = form.nama.value;
       const telepon = form.telepon.value;
@@ -107,27 +112,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const admin = "628882782725";
 
-      const pesan = `
-*Pemesanan Baru Kiara Make-Up*
-=====================
+      const pesan =
+`Halo Kiara Make-Up 👋
+
+Saya ingin melakukan booking dengan detail berikut:
+
 Nama: ${nama}
 No. HP: ${telepon}
 Alamat: ${alamat}
 Tanggal: ${tanggal}
 Layanan: ${layanan}
 Detail: ${detail}
-=====================
-Terima kasih 💖
-`;
 
-      window.open(
-        `https://wa.me/${admin}?text=${encodeURIComponent(pesan)}`,
-        "_blank"
-      );
+Terima kasih 💖`;
+
+      const waLink =
+        `https://wa.me/${admin}?text=${encodeURIComponent(pesan)}`;
+
+      window.open(waLink, "_blank");
+
+      // reset flag setelah 2 detik
+      setTimeout(() => {
+        sudahKirim = false;
+      }, 2000);
     });
   }
 
-  // Tutup lightbox klik luar
+  // === Tutup lightbox klik luar ===
   const lightbox = document.getElementById("lightbox");
   if (lightbox) {
     lightbox.addEventListener("click", e => {

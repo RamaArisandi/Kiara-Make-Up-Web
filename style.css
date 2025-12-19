@@ -267,6 +267,98 @@ a {
 }
 
 /* =====================================
+   GALLERY (RAPIH & RESPONSIVE)
+===================================== */
+.gallery {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.gallery h2 {
+  text-align: center;
+  font-size: 36px;
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+
+.gallery-title {
+  margin: 30px 0 20px;
+  color: var(--pink-deep);
+  font-size: 22px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,.08);
+  transition: .3s;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+/* =====================================
+   ABOUT (TENTANG KAMI) - FIX IMAGE
+===================================== */
+.about {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-content img {
+  width: 100%;
+  max-width: 420px;   /* ⬅️ ini kuncinya */
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.1);
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-content img {
+    max-width: 100%;
+    height: 260px;
+  }
+}
+
+
+
+/* =====================================
    FOOTER
 ===================================== */
 .footer {
